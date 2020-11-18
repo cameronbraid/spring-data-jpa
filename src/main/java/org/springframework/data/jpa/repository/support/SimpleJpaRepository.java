@@ -735,7 +735,7 @@ public class SimpleJpaRepository<T, ID> implements JpaRepositoryImplementation<T
 		// Remove all Orders the Specifications might have applied
 		query.orderBy(Collections.<Order> emptyList());
 
-		return em.createQuery(query);
+		return applyRepositoryMethodMetadata(em.createQuery(query));
 	}
 
 	/**
